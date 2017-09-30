@@ -14,6 +14,39 @@
     :alt: Requirements Status
     :target: https://requires.io/github/ExCiteS/geokey/requirements/?branch=master
 
+==============================================================================
+Modification for configuration for social account authentication
+==============================================================================
+[Configuration in settings.py]
+Add provider apps for social authentication : allauth.socialaccount.providers.facebook
+(other apps are already included)
+
+Add authentication AppID and Secret Key: 
+SOCIAL_AUTH_FACEBOOK_KEY = '…....'
+SOCIAL_AUTH_FACEBOOK_SECRET = '…...................'
+
+Add SOCIALACCOUNT_PROVIDERS which defines app name, authentication method, scope, etc.
+
+Add Authentication backends : already included
+
+[Setting redirection process]
+Redirection process to a page (user profile) for successful login is already defined in the adapters.py
+
+[Add the url for allauth]
+This is already included in the core/url.py
+
+[Setting domain information and AppID/SecretKey in Django admin]
+Access Django admin via http://localhost/admin/superusertools/ with a superuser account
+In the platform settings, change the domain from example.com to http://localhost:8000/
+In the providers tab, select the provider and input client ID (AppID) and Secret (Secret Key)
+
+[Test]
+Access the example.com page through http://localhost:8000/
+Sign in with your Facebook account via the Facebook button.
+If successful, it directs to your account profile.
+Signup with your Facebook account by clicking the sign up link.
+Once it is successful, the page is directed to the user profile connected to your social account.
+
 
 ======
 GeoKey
