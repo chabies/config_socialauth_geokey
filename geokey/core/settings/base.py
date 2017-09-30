@@ -61,6 +61,9 @@ INSTALLED_APPS = (
     'geokey.superusertools',
     'geokey.extensions',
     'geokey.subsets',
+
+    # Providers of the social authentication service
+    'allauth.socialaccount.providers.facebook',
 )
 
 # Middleware that is used with GeoKey to process HTTP requests and responses.
@@ -139,7 +142,17 @@ ACCOUNT_FORMS = {
 }
 SOCIALACCOUNT_ADAPTER = 'geokey.core.adapters.SocialAccountAdapter'
 SOCIALACCOUNT_QUERY_EMAIL = True
-SOCIALACCOUNT_PROVIDERS = {}
+SOCIALACCOUNT_PROVIDERS = { 'facebook':
+                               {'METHOD': 'oauth2',
+                                'SCOPE': ['email'],
+                                'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+                                'LOCALE_FUNC': lambda request: 'en_UK',
+                                'VERSION': 'v2.4'
+                               }
+                           }
+# Autentication AppID and Secret Key against Facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '137661616969618'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='c2df7a113909c2c1ab5a5f90946b2c65' #app key
 
 SITE_ROOT = dirname(dirname(dirname(abspath(__file__))))
 STATICFILES_DIRS = [normpath(join(SITE_ROOT, 'static'))]
