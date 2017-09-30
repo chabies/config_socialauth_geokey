@@ -15,7 +15,7 @@
     :target: https://requires.io/github/ExCiteS/geokey/requirements/?branch=master
 
 ==============================================================================
-Modification for configuration for social account authentication
+Modification process for configuration for social account authentication
 ==============================================================================
 
 Configuration in settings.py
@@ -49,17 +49,17 @@ In the platform settings, change the domain from example.com to http://localhost
 
 In the providers tab, select the provider and input client ID (AppID) and Secret (Secret Key)
 
-Test
+Test & Results
 =====
 Access the example.com page through http://localhost:8000/
 
-Sign in with your Facebook account via the Facebook button.
+Test: Sign in with a Facebook account via the Facebook manu.
 
-If successful, it directs to your account profile.
+Result: it directed to the account profile.
 
-Signup with your Facebook account by clicking the sign up link.
+Signup with a Facebook account by clicking the sign up link.
 
-Once it is successful, the page is directed to the user profile connected to your social account.
+Result: the page is directed to the user profile connected to the social account.
 
 
 ======
